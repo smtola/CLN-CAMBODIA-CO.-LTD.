@@ -17,11 +17,11 @@ interface Service{
 export class Home {
   // All services data
   services: Service[] = [
+    { title: 'Custom Clearance (Import / Export)', image: 'assets/image/custom clearance.jpg' },
+    { title: 'Cross border (land transport)', image: 'assets/image/cross.png' },
     { title: 'Sea Freight', image: 'assets/image/ship.png' },
     { title: 'Air Freight', image: 'assets/image/airplan.png' },
-    { title: 'Inland Transportation (Cross border)', image: 'assets/image/truck.jpg' },
     { title: 'Packing & Warehouse', image: 'assets/image/warehouse.jpg' },
-    { title: 'Custom Clearance (Import / Export)', image: 'assets/image/custom clearance.jpg' },
     { title: 'International Express Courier', image: 'assets/image/international express.jpg' },
     { title: 'Consolidation', image: 'assets/image/consolidation.jpg' },
     { title: 'Door to Door Service', image: 'assets/image/door_to_door.jpg' }
