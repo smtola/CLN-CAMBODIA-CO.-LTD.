@@ -52,7 +52,7 @@
 
 <div class="w-full mt-[5rem] md:mt-[10rem] overflow-hidden">
     <h1 class="text-[24px] md:text-[28px] font-medium text-center text-[#EE3A23]">Transportation</h1>
-    <marquee behavior="scroll" direction="left" scrollamount="5">
+    <marquee behavior="scroll" direction="left" scrollamount="5" class="transition-all duration-150">
         <ul class="flex gap-[1vw]">
             <li>
                 <img 
@@ -153,14 +153,14 @@
     </div>
 </section>
 
-<div class="relative flex items-center justify-center w-full h-fit bg-red-500 my-2 overflow-hidden py-2 md:py-[5rem]">
+<div class="relative flex items-center justify-center w-full h-full bg-red-500 my-2 overflow-hidden py-4 md:py-[5rem]">
     <img 
         ngSrc="assets/image/banner_4.png" 
         alt="logo"
         width="1920"
         height="1080"
         priority
-        class="absolute inset-0 w-full object-contain object-center"
+        class="absolute inset-0 w-full h-full object-cover object-center"
     >
     <div class="absolute inset-0 w-full h-full bg-[#4FB748] opacity-[40%]"></div>
     <div class="relative flex flex-wrap xl:flex-nowrap justify-center gap-2 xl:max-w-screen-xl">
