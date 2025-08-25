@@ -1,0 +1,59 @@
+
+<div >
+  <button 
+    (click)="open()" 
+    class="text-[14px] md:text-[18px] px-4 py-1 bg-red-50 border border-[#EE3A23] text-[#EE3A23] rounded-[4px] cursor-pointer">
+    Request a Quote
+  </button>
+</div>
+  
+<!-- Modal -->
+<div *ngIf="isOpen" class="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+  <div class="bg-white rounded-lg shadow-lg w-[90%] md:w-[500px] p-6 relative">
+    <!-- Close Button -->
+    <button 
+      (click)="onClose()" 
+      class="absolute top-3 right-3 text-gray-500 hover:text-black">
+      ✖
+    </button>
+
+    <h2 class="text-xl font-bold mb-4">Request a Quote</h2>
+
+    <form #quoteForm="ngForm" (ngSubmit)="onSubmit(quoteForm)">
+      <div class="mb-3">
+        <label class="block mb-1">Name</label>
+        <input 
+          type="text" 
+          name="name" 
+          ngModel 
+          class="w-full border rounded p-2"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label class="block mb-1">Email</label>
+        <input 
+          type="email" 
+          name="email" 
+          ngModel 
+          class="w-full border rounded p-2"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label class="block mb-1">Message</label>
+        <textarea 
+          name="message" 
+          ngModel 
+          class="w-full border rounded p-2"
+          rows="3"></textarea>
+      </div>
+
+      <button 
+        type="submit" 
+        class="w-full bg-[#EE3A23] text-white py-2 rounded hover:bg-red-600">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

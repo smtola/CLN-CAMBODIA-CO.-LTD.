@@ -1,0 +1,144 @@
+<!-- Products Section -->
+<section class="w-full h-fit bg-gradient-to-r from-[#4fb748] to-[#EE3A23]">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-[16px] md:text-[24px] font-medium text-white text-center py-4">
+        Products We Handle Currently
+      </h1>
+  
+      <div class="flex flex-nowrap items-center gap-4 p-3">
+  
+        <!-- Filter Button -->
+        <div class="relative">
+          <button (click)="openPopup()"
+            class="flex items-center text-[16px] md:text-[22px] gap-2 px-4 py-2 border border-white hover:bg-white/20 text-white rounded-xl transition">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 4.5h18M6 9.75h12M9 15h6M11.25 19.5h1.5" />
+            </svg>
+            Filters
+          </button>
+  
+          <!-- Popup Overlay -->
+          <div *ngIf="showPopup" 
+               class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+               (click)="closePopup()">
+            <div class="bg-white rounded-[10px] w-80 p-6 shadow-lg relative"
+                 (click)="$event.stopPropagation()">
+              
+              <!-- Close Button -->
+              <button (click)="closePopup()" class="absolute top-3 right-3 text-[16px] md:text-[22px] text-gray-500 hover:text-gray-700">
+                ✕
+              </button>
+  
+              <h2 class="text-[16px] md:text-[22px] font-bold text-gray-800 mb-4">Category Filters</h2>
+  
+              <div class="flex flex-wrap gap-2">
+                <button *ngFor="let cat of categories"
+                        (click)="selectCategory(cat)"
+                        [ngClass]="selectedCategory === cat
+                          ? 'px-4 py-2 text-[16px] md:text-[22px] rounded-[10px] bg-green-500 text-white shadow hover:bg-green-600'
+                          : 'px-4 py-2 text-[16px] md:text-[22px] rounded-[10px] border border-green-500 text-green-600 hover:bg-green-100'">
+                  {{ cat }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Product Tabs -->
+        <div class="flex gap-2 overflow-x-auto hide-scrollbar px-1">
+          <ul class="flex gap-2 text-[16px] md:text-[22px]">
+            <li>
+              <button (click)="selectProduct('All')"
+                      [ngClass]="!selectedProduct
+                        ? 'px-4 py-2 rounded-[10px] bg-[#4fb748]/30 border border-[#4fb748] text-white backdrop-blur-[10px]'
+                        : 'px-4 py-2 rounded-[10px] border bg-black/40 border-white backdrop-blur-[10px] text-green-600 hover:bg-[#4fb748]/30'">
+                All
+              </button>
+            </li>
+  
+            <li *ngFor="let sc of filteredSubCat">
+              <button (click)="selectProduct(sc.product)"
+                      [ngClass]="selectedProduct === sc.product
+                        ? 'px-4 py-2 rounded-[10px] bg-[#4fb748]/30 border border-[#4fb748] text-white backdrop-blur-[10px]'
+                        : 'px-4 py-2 rounded-[10px] border bg-black/40 border-white backdrop-blur-[10px] text-green-600 hover:bg-[#4fb748]/30'">
+                {{ sc.product }}
+              </button>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- Product Display -->
+  <section class="max-w-7xl mx-auto p-3 grid gap-6">
+    <div *ngFor="let item of filteredProducts" class="bg-white rounded-lg overflow-hidden">
+      <div class="p-4">
+        <h2 class="text-[16px] md:text-[22px] text-[#4fb748] font-medium">{{ item.product }}</h2>
+        <span class="text-[14px] md:text-[20px] text-[#4fb748] font-light">{{ item.caption }}</span>
+      </div>
+  
+      <div class="grid grid-cols-2 gap-2">
+        <ng-container *ngFor="let img of item.image">
+            <a href="{{img}}" target="_blank">
+                <img 
+                [ngSrc]="img"
+                alt="{{ item.product }}"
+                width="1920" height="1080"
+                priority
+                class="w-full h-full object-cover object-center">
+            </a>
+        </ng-container>
+      </div>
+    </div>
+    <!-- Show button only if more items exist -->
+    <div class="flex gap-2 justify-end mt-4">
+      <!-- See Less -->
+      <button
+        *ngIf="visibleProduct > 1"
+        (click)="loadLess()"
+        class="px-3 py-1 bg-gray-200 border border-gray-400 rounded text-gray-700">
+        See Less
+      </button>
+    
+      <!-- See More -->
+      <button
+        *ngIf="visibleProduct < filteredProductsTotal"
+        (click)="loadMore()"
+        class="px-3 py-1 bg-green-50 border border-green-600 text-green-600 rounded">
+        See More
+      </button>
+    
+    </div>
+    
+
+  </section>
+  
+  <section class="w-full h-fit overflow-hidden">
+    <div class="relative flex justify-center items-center w-full h-[25vh] md:h-[40vh] xl:h-[100vh]">
+        <img 
+            ngSrc="assets/image/banner.png" 
+            alt="logo"
+            width="1920"
+            height="1080"
+            priority
+            class="absolute inset-0 w-full h-full object-cover object-center"
+        >
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative">
+            <h1 class="text-white text-[22px] md:text-[44px]">
+                Trust <span class="text-[#4fb748]">US</span>
+                <br/>
+                To Handle
+                <br/>
+                <span class="text-[#4fb748]">Your Shipment</span>
+            </h1>
+        </div>
+    </div>
+</section>
+<div class="w-full h-[2vh] bg-gradient-to-b from-[#4fb748] to-[#fff] blur-[2px]">
+        
+</div>
