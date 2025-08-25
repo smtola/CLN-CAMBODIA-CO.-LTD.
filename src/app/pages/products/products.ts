@@ -19,27 +19,27 @@ export class Products implements OnInit {
   visibleImage: number = 4;
   subCat = [
     { key: 'rice', category: 'Export', product: 'Rice' },
-    { key: 'rubber', category: 'Import', product: 'Rubber' },
+    { key: 'rubber', category: 'Export', product: 'Rubber' },
     { key: 'lo', category: 'Import', product: 'Lubricant Oil' },
     { key: 'personal_effect', category: 'Import', product: 'Personal Effect' },
     { key: 'soy_bean', category: 'Export', product: 'Soy Bean' },
     { key: 'pesticide', category: 'Import', product: 'Pesticide' },
     { key: 'fertillizer', category: 'Import', product: 'Fertillizer' },
-    { key: 'farm_equipment', category: 'Export', product: 'Farm Equipment' },
-    { key: 'dis', category: 'Export', product: 'Drip Irrigation System' },
-    { key: 'aquarium_products', category: 'Export', product: 'Aquarium Products' },
-    { key: 'tractors', category: 'Export', product: 'Tractors' },
-    { key: 'implement', category: 'Export', product: 'Implement' },
-    { key: 'sp', category: 'Export', product: 'Spare Parts' },
+    { key: 'farm_equipment', category: 'Import', product: 'Farm Equipment' },
+    { key: 'dis', category: 'Import', product: 'Drip Irrigation System' },
+    { key: 'aquarium_products', category: 'Import', product: 'Aquarium Products' },
+    { key: 'tractors', category: 'Import', product: 'Tractors' },
+    { key: 'implement', category: 'Import', product: 'Implement' },
+    { key: 'sp', category: 'Import', product: 'Spare Parts' },
     { key: 'fresh_mango', category: 'Export', product: 'Fresh Mango' },
     { key: 'fresh_banana', category: 'Export', product: 'Fresh Banana' },
     { key: 'fresh_durian', category: 'Export', product: 'Fresh Durian' },
     { key: 'sugar_palm', category: 'Export', product: 'Sugar Palm' },
     { key: 'pepper', category: 'Export', product: 'Pepper' },
-    { key: 'shelving_rack', category: 'Export', product: 'Shelving Rack and Light Fitting' },
+    { key: 'shelving_rack', category: 'Import', product: 'Shelving Rack and Light Fitting' },
     { key: 'furniture', category: 'Export', product: 'Furniture' },
     { key: 'bsapm', category: 'Export', product: 'Buddha Status And Pagoda Materials' },
-    { key: 'veterinary_medicine', category: 'Export', product: 'Veterinary Medicine' }
+    { key: 'veterinary_medicine', category: 'Import', product: 'Veterinary Medicine' }
   ];
 
   products = [
@@ -47,42 +47,45 @@ export class Products implements OnInit {
       key: 'rice',
       category: 'Export',
       product: 'Rice',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - France, Germany, Philippines and China',
       image: ['assets/image/products/rice/rice.jpeg'],
     },
     {
       key: 'rubber',
-      category: 'Import',
+      category: 'Export',
       product: 'Rubber',
-      caption: 'Country-Cambodia',
-      image: [],
+      caption: 'Cambodia - China',
+      image: [
+        'assets/image/products/rubber/rubber_1.jpg',
+        'assets/image/products/rubber/rubber_2.jpg'
+      ],
     },
     {
       key: 'lo',
-      category: 'Export',
+      category: 'Import',
       product: 'Lubricant Oil',
-      caption: 'Country-Cambodia',
+      caption: '',
       image: [],
     },
     {
       key: 'personal_effect',
       category: 'Import',
       product: 'Personal Effect',
-      caption: 'Country-Cambodia',
+      caption: '',
       image: [],
     },
     {
       key: 'soy_bean',
-      category: 'Import',
+      category: 'Export',
       product: 'Soy Bean',
-      caption: 'Country-Cambodia',
+      caption: '',
       image: [],
     },
     {
       key: 'pesticide',
       category: 'Import',
       product: 'Pesticide',
-      caption: 'Country-Cambodia',
+      caption: 'China, Thailand, Vietnam and Spain - Cambodia - Cambodia',
       image: [
         'assets/image/products/pesticide/pesticide_1.jpg',
         'assets/image/products/pesticide/pesticide_2.jpg',
@@ -93,7 +96,7 @@ export class Products implements OnInit {
       key: 'fertillizer',
       category: 'Import',
       product: 'Fertillizer',
-      caption: 'Country-Cambodia',
+      caption: 'China, Thailand, Vietnam and Spain - Cambodia',
       image: [
         'assets/image/products/fertillizer/fertillizer_1.jpg',
         'assets/image/products/fertillizer/fertillizer_2.jpg',
@@ -105,14 +108,14 @@ export class Products implements OnInit {
       key: 'farm_equipment',
       category: 'Import',
       product: 'Farm Equipment',
-      caption: 'Country-Cambodia',
+      caption: '',
       image: [],
     },
     {
       key: 'dis',
       category: 'Import',
       product: 'Drip Irrigation System',
-      caption: 'Country-Cambodia',
+      caption: 'China-Cambodia',
       image: [
         'assets/image/products/drip lrrigation system/dls_1.png',
         'assets/image/products/drip lrrigation system/dls_2.png',
@@ -123,7 +126,7 @@ export class Products implements OnInit {
       key: 'aquarium_products',
       category: 'Import',
       product: 'Aquarium Products',
-      caption: 'Country-Cambodia',
+      caption: '',
       image: [
         
       ],
@@ -132,7 +135,7 @@ export class Products implements OnInit {
       key: 'tractors',
       category: 'Import',
       product: 'Tractors',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - India and Italy',
       image: ['assets/image/products/tractors/tractor_1.jpg',
         'assets/image/products/tractors/tractor_2.png',
         'assets/image/products/tractors/tractor_3.jpg'],
@@ -141,7 +144,7 @@ export class Products implements OnInit {
       key: 'implement',
       category: 'Import',
       product: 'Implement',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - India and Italy',
       image: [
         'assets/image/products/implement/implement1.jpeg',
         'assets/image/products/implement/implement_2.jpg',
@@ -153,7 +156,7 @@ export class Products implements OnInit {
       key: 'sp',
       category: 'Import',
       product: 'Spare Parts',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - India and Italy',
       image: [
         'assets/image/products/spare parts/sp_1.jpg',
         'assets/image/products/spare parts/sp_2.jpg',
@@ -163,9 +166,9 @@ export class Products implements OnInit {
     },
     {
       key: 'fresh_mango',
-      category: 'Import',
+      category: 'Export',
       product: 'Fresh Mango',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - China, Thailand, India, Dubai and Vietnam',
       image: [
         'assets/image/products/fresh mango/fresh_mango_1.jpg',
         'assets/image/products/fresh mango/fresh_mango_2.jpg',
@@ -177,9 +180,9 @@ export class Products implements OnInit {
     },
     {
       key: 'fresh_banana',
-      category: 'Import',
+      category: 'Export',
       product: 'Fresh Banana',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - China, Thailand, India, Dubai and Vietnam',
       image: [
         'assets/image/products/fresh banana/fresh_banana_1.png',
         'assets/image/products/fresh banana/fresh_banana_2.png'
@@ -187,9 +190,9 @@ export class Products implements OnInit {
     },
     {
       key: 'fresh_durian',
-      category: 'Import',
+      category: 'Export',
       product: 'Fresh Durian',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - China, Thailand, India, Dubai and Vietnam',
       image: [
         'assets/image/products/durian/durian_3.jpg',
         'assets/image/products/durian/durian_2.jpg',
@@ -201,16 +204,16 @@ export class Products implements OnInit {
     },
     {
       key: 'sugar_palm',
-      category: 'Import',
+      category: 'Export',
       product: 'Sugar Palm',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - Japan, Vietnam and Thailand',
       image: [],
     },
     {
       key: 'pepper',
-      category: 'Import',
+      category: 'Export',
       product: 'Pepper',
-      caption: 'Country-Cambodia',
+      caption: 'Cambodia - Japan, Vietnam and Thailand',
       image: [
         'assets/image/products/pepper/pepper_2.jpg',
         'assets/image/products/pepper/pepper_3.jpg',
@@ -222,7 +225,7 @@ export class Products implements OnInit {
       key: 'shelving_rack',
       category: 'Import',
       product: 'Shelving Rack and Light Fitting',
-      caption: 'Country-Cambodia',
+      caption: '',
       image: [
         'assets/image/products/shelving rack and light fitting/sralf_1.png',
         'assets/image/products/shelving rack and light fitting/sralf_2.png',
@@ -233,7 +236,7 @@ export class Products implements OnInit {
       key: 'furniture',
       category: 'Import',
       product: 'Furniture',
-      caption: 'Country-Cambodia',
+      caption: '',
       image: [
         'assets/image/products/furniture/furniture_1.png',
         'assets/image/products/furniture/furniture_2.png'
@@ -251,9 +254,9 @@ export class Products implements OnInit {
     },
     {
       key: 'veterinary_midicine',
-      category: 'Export',
+      category: 'Import',
       product: 'Veterinary Medicine',
-      caption: 'Country-Cambodia',
+      caption: 'Vietnam-Cambodia',
       image: []
     },
   ];

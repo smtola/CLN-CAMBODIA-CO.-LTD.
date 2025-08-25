@@ -11,14 +11,6 @@
     box-sizing: border-box;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
-  }
-  .hide-scrollbar {
-    -ms-overflow-style: none;  /* IE & Edge */
-    scrollbar-width: none;     /* Firefox */
-  }
-
   .font-playwrite-nz {
     font-family: 'Playwrite NZ', sans-serif;
   }
