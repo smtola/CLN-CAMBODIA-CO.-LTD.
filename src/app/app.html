@@ -1,5 +1,6 @@
+<app-loading *ngIf="isLoading"/>
 <navbar />
-<router-outlet />
+<router-outlet *ngIf="!isLoading"/>
 <footer class="relative w-full h-full overflow-hidden">
     <a href="/" class="absolute inset-0 translate-y-[50%] xl:translate-y-[10%] translate-x-2 w-fit h-fit bg-white p-2 z-[2]">
         <img 

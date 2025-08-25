@@ -1,12 +1,13 @@
 import { Component, HostListener, OnInit, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import AOS from 'aos';
+import { Loading } from './components/loading/loading';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar,NgOptimizedImage, CommonModule],
+  imports: [RouterOutlet, Navbar,NgOptimizedImage, CommonModule, Loading],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -33,6 +34,14 @@ export class App implements OnInit {
       duration: 1000,
       easing: 'ease-in-out',
       once: true
+    });
+  }
+  isLoading = true;
+  constructor(router: Router) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        setTimeout(() => this.isLoading = false, 800); // simulate loading delay
+      }
     });
   }
 }
