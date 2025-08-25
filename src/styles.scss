@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 @import "aos/dist/aos.css";
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&display=swap');
 
 *,html,body{
     padding: 0;
@@ -16,4 +17,8 @@
   .hide-scrollbar {
     -ms-overflow-style: none;  /* IE & Edge */
     scrollbar-width: none;     /* Firefox */
+  }
+
+  .font-playwrite-nz {
+    font-family: 'Playwrite NZ', sans-serif;
   }

@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   standalone: true,
   imports: [NgOptimizedImage, CommonModule],
   templateUrl: './products.html',
-  styleUrls: ['./products.scss']
+  styleUrls: ['./products.scss'],
 })
 export class Products implements OnInit {
   showPopup = false;
@@ -15,38 +15,265 @@ export class Products implements OnInit {
   selectedCategory = 'All';
   selectedProduct: string | null = null;
 
-  visibleProduct:number = 1;
-
+  visibleProduct: number = 2;
+  visibleImage: number = 4;
   subCat = [
-    {key:'rice', category:'Export', product:'Rice'},
-    {key:'durian', category:'Export', product:'Durian'},
-    {key:'rubber', category:'Import', product:'Rubber'},
-    {key:'paf', category:'Import', product:'PAF'},
+    { key: 'rice', category: 'Export', product: 'Rice' },
+    { key: 'rubber', category: 'Import', product: 'Rubber' },
+    { key: 'lo', category: 'Import', product: 'Lubricant Oil' },
+    { key: 'personal_effect', category: 'Import', product: 'Personal Effect' },
+    { key: 'soy_bean', category: 'Export', product: 'Soy Bean' },
+    { key: 'pesticide', category: 'Import', product: 'Pesticide' },
+    { key: 'fertillizer', category: 'Import', product: 'Fertillizer' },
+    { key: 'farm_equipment', category: 'Export', product: 'Farm Equipment' },
+    { key: 'dis', category: 'Export', product: 'Drip Irrigation System' },
+    { key: 'aquarium_products', category: 'Export', product: 'Aquarium Products' },
+    { key: 'tractors', category: 'Export', product: 'Tractors' },
+    { key: 'implement', category: 'Export', product: 'Implement' },
+    { key: 'sp', category: 'Export', product: 'Spare Parts' },
+    { key: 'fresh_mango', category: 'Export', product: 'Fresh Mango' },
+    { key: 'fresh_banana', category: 'Export', product: 'Fresh Banana' },
+    { key: 'fresh_durian', category: 'Export', product: 'Fresh Durian' },
+    { key: 'sugar_palm', category: 'Export', product: 'Sugar Palm' },
+    { key: 'pepper', category: 'Export', product: 'Pepper' },
+    { key: 'shelving_rack', category: 'Export', product: 'Shelving Rack and Light Fitting' },
+    { key: 'furniture', category: 'Export', product: 'Furniture' },
+    { key: 'bsapm', category: 'Export', product: 'Buddha Status And Pagoda Materials' },
+    { key: 'veterinary_medicine', category: 'Export', product: 'Veterinary Medicine' }
   ];
 
   products = [
-    {key: 'rice', category: 'Export', product: 'Rice', caption: 'Cambodia-China',
-     image: ['assets/image/air_freight.jpg', 'assets/image/air_freight.jpg', 'assets/image/air_freight.jpg']},
-    {key: 'durian', category: 'Export', product: 'Durian', caption: 'Fresh Durian Export',
-     image: ['assets/image/air_freight.jpg', 'assets/image/air_freight.jpg', 'assets/image/air_freight.jpg']},
-    {key: 'paf', category: 'Import', product: 'PAF', caption: 'PAF Materials',
-     image: ['assets/image/air_freight.jpg', 'assets/image/air_freight.jpg', 'assets/image/air_freight.jpg']},
-    {key: 'rubber', category: 'Import', product: 'Rubber', caption: 'Rubber Materials',
-     image: ['assets/image/air_freight.jpg', 'assets/image/air_freight.jpg', 'assets/image/air_freight.jpg']},
+    {
+      key: 'rice',
+      category: 'Export',
+      product: 'Rice',
+      caption: 'Country-Cambodia',
+      image: ['assets/image/products/rice/rice.jpeg'],
+    },
+    {
+      key: 'rubber',
+      category: 'Import',
+      product: 'Rubber',
+      caption: 'Country-Cambodia',
+      image: [],
+    },
+    {
+      key: 'lo',
+      category: 'Export',
+      product: 'Lubricant Oil',
+      caption: 'Country-Cambodia',
+      image: [],
+    },
+    {
+      key: 'personal_effect',
+      category: 'Import',
+      product: 'Personal Effect',
+      caption: 'Country-Cambodia',
+      image: [],
+    },
+    {
+      key: 'soy_bean',
+      category: 'Import',
+      product: 'Soy Bean',
+      caption: 'Country-Cambodia',
+      image: [],
+    },
+    {
+      key: 'pesticide',
+      category: 'Import',
+      product: 'Pesticide',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/pesticide/pesticide_1.jpg',
+        'assets/image/products/pesticide/pesticide_2.jpg',
+        'assets/image/products/pesticide/pesticide_3.jpg'
+      ],
+    },
+    {
+      key: 'fertillizer',
+      category: 'Import',
+      product: 'Fertillizer',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/fertillizer/fertillizer_1.jpg',
+        'assets/image/products/fertillizer/fertillizer_2.jpg',
+        'assets/image/products/fertillizer/fertillizer_3.jpg',
+        'assets/image/products/fertillizer/fertillizer_4.jpg',
+      ],
+    },
+    {
+      key: 'farm_equipment',
+      category: 'Import',
+      product: 'Farm Equipment',
+      caption: 'Country-Cambodia',
+      image: [],
+    },
+    {
+      key: 'dis',
+      category: 'Import',
+      product: 'Drip Irrigation System',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/drip lrrigation system/dls_1.png',
+        'assets/image/products/drip lrrigation system/dls_2.png',
+        'assets/image/products/drip lrrigation system/dls_3.png'
+      ],
+    },
+    {
+      key: 'aquarium_products',
+      category: 'Import',
+      product: 'Aquarium Products',
+      caption: 'Country-Cambodia',
+      image: [
+        
+      ],
+    },
+    {
+      key: 'tractors',
+      category: 'Import',
+      product: 'Tractors',
+      caption: 'Country-Cambodia',
+      image: ['assets/image/products/tractors/tractor_1.jpg',
+        'assets/image/products/tractors/tractor_2.png',
+        'assets/image/products/tractors/tractor_3.jpg'],
+    },
+    {
+      key: 'implement',
+      category: 'Import',
+      product: 'Implement',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/implement/implement1.jpeg',
+        'assets/image/products/implement/implement_2.jpg',
+        'assets/image/products/implement/implement_3.jpg',
+        'assets/image/products/implement/implement_4.jpg'
+      ]
+    },
+    {
+      key: 'sp',
+      category: 'Import',
+      product: 'Spare Parts',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/spare parts/sp_1.jpg',
+        'assets/image/products/spare parts/sp_2.jpg',
+        'assets/image/products/spare parts/sp_3.jpg',
+        'assets/image/products/spare parts/sp_4.jpg'
+      ]
+    },
+    {
+      key: 'fresh_mango',
+      category: 'Import',
+      product: 'Fresh Mango',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/fresh mango/fresh_mango_1.jpg',
+        'assets/image/products/fresh mango/fresh_mango_2.jpg',
+        'assets/image/products/fresh mango/fresh_mango_3.png',
+        'assets/image/products/fresh mango/fresh_mango_4.jpg',
+        'assets/image/products/fresh mango/fresh_mango_5.jpg',
+        'assets/image/products/fresh mango/fresh_mango_6.jpg'
+      ]
+    },
+    {
+      key: 'fresh_banana',
+      category: 'Import',
+      product: 'Fresh Banana',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/fresh banana/fresh_banana_1.png',
+        'assets/image/products/fresh banana/fresh_banana_2.png'
+      ]
+    },
+    {
+      key: 'fresh_durian',
+      category: 'Import',
+      product: 'Fresh Durian',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/durian/durian_3.jpg',
+        'assets/image/products/durian/durian_2.jpg',
+        'assets/image/products/durian/durian_1.jpg',
+        'assets/image/products/durian/durian_6.jpg',
+        'assets/image/products/durian/durian_5.jpg',
+        'assets/image/products/durian/durian_4.jpg'
+      ]
+    },
+    {
+      key: 'sugar_palm',
+      category: 'Import',
+      product: 'Sugar Palm',
+      caption: 'Country-Cambodia',
+      image: [],
+    },
+    {
+      key: 'pepper',
+      category: 'Import',
+      product: 'Pepper',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/pepper/pepper_2.jpg',
+        'assets/image/products/pepper/pepper_3.jpg',
+        'assets/image/products/pepper/pepper_4.jpg',
+        'assets/image/products/pepper/pepper_1.jpg',
+      ]
+    },
+    {
+      key: 'shelving_rack',
+      category: 'Import',
+      product: 'Shelving Rack and Light Fitting',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/shelving rack and light fitting/sralf_1.png',
+        'assets/image/products/shelving rack and light fitting/sralf_2.png',
+        'assets/image/products/shelving rack and light fitting/sralf_3.png'
+      ]
+    },
+    {
+      key: 'furniture',
+      category: 'Import',
+      product: 'Furniture',
+      caption: 'Country-Cambodia',
+      image: [
+        'assets/image/products/furniture/furniture_1.png',
+        'assets/image/products/furniture/furniture_2.png'
+      ]
+    },
+    {
+      key: 'bsapm',
+      category: 'Export',
+      product: 'Buddha Status And Pagoda Materials',
+      caption: 'USA-Cambodia',
+      image: [
+        'assets/image/products/buddha status/buddha_status_1.jpg',
+        'assets/image/products/buddha status/buddha_status_2.jpg'
+      ],
+    },
+    {
+      key: 'veterinary_midicine',
+      category: 'Export',
+      product: 'Veterinary Medicine',
+      caption: 'Country-Cambodia',
+      image: []
+    },
   ];
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       if (params['category'] && this.categories.includes(params['category'])) {
         this.selectedCategory = params['category'];
       }
-    
+
       if (params['product']) {
         // If category is 'All', any product is allowed
-        if (this.selectedCategory === 'All' || 
-            this.subCat.some(sc => sc.product === params['product'] && sc.category === this.selectedCategory)) {
+        if (
+          this.selectedCategory === 'All' ||
+          this.subCat.some(
+            (sc) => sc.product === params['product'] && sc.category === this.selectedCategory
+          )
+        ) {
           this.selectedProduct = params['product'];
         } else {
           this.selectedProduct = null;
@@ -55,72 +282,94 @@ export class Products implements OnInit {
         this.selectedProduct = null;
       }
     });
-    
   }
-  
-  openPopup() { this.showPopup = true; }
-  closePopup() { this.showPopup = false; }
+
+  openPopup() {
+    this.showPopup = true;
+  }
+  closePopup() {
+    this.showPopup = false;
+  }
 
   selectProduct(prod: string) {
     this.selectedProduct = prod === 'All' ? null : prod;
-  
+
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { category: this.selectedCategory, product: prod === 'All' ? null : prod },
-      queryParamsHandling: 'merge'
+      queryParamsHandling: 'merge',
     });
   }
-  
 
   selectCategory(cat: string) {
     this.selectedCategory = cat;
     this.selectedProduct = null;
-    this.router.navigate([], { relativeTo: this.route, queryParams: { category: cat }, queryParamsHandling: 'merge' });
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { category: cat },
+      queryParamsHandling: 'merge',
+    });
     this.closePopup();
   }
 
-
   get filteredSubCat() {
     if (this.selectedCategory === 'All') return this.subCat;
-    return this.subCat.filter(sc => sc.category === this.selectedCategory);
+    return this.subCat.filter((sc) => sc.category === this.selectedCategory);
   }
 
   get filteredProducts() {
     let filtered = this.products;
-  
+
     // Apply category filter
     if (this.selectedCategory !== 'All') {
-      filtered = filtered.filter(p => p.category === this.selectedCategory);
+      filtered = filtered.filter((p) => p.category === this.selectedCategory);
     }
-  
+
     // Apply product filter
     if (this.selectedProduct) {
-      filtered = filtered.filter(p => p.product === this.selectedProduct);
+      filtered = filtered.filter((p) => p.product === this.selectedProduct);
     }
-  
+
     // Show only visible items
     return filtered.slice(0, this.visibleProduct);
   }
-  
+
   // Total filtered products for button logic
   get filteredProductsTotal() {
     let filtered = this.products;
-    if (this.selectedCategory !== 'All') filtered = filtered.filter(p => p.category === this.selectedCategory);
-    if (this.selectedProduct) filtered = filtered.filter(p => p.product === this.selectedProduct);
+    if (this.selectedCategory !== 'All')
+      filtered = filtered.filter((p) => p.category === this.selectedCategory);
+    if (this.selectedProduct) filtered = filtered.filter((p) => p.product === this.selectedProduct);
     return filtered.length;
+  }
+
+  getVisibleImages(item: any) {
+    return item.image.slice(0, this.visibleImage);
+  }
+
+  loadMoreImages(item: any) {
+    if (this.visibleImage < item.image.length) {
+      this.visibleImage += 4;
+    }
+  }
+
+  loadLessImages() {
+    if (this.visibleImage > 4) {
+      this.visibleImage -= 4;
+    }
   }
 
   loadMore() {
     const total = this.filteredProductsTotal;
     if (this.visibleProduct < total) {
-      this.visibleProduct += 1;
+      this.visibleProduct += 2;
     }
   }
 
   // Show fewer products
   loadLess() {
-    if (this.visibleProduct > 1) {
-      this.visibleProduct -= 1;
+    if (this.visibleProduct > 2) {
+      this.visibleProduct -= 2;
     }
   }
 }
